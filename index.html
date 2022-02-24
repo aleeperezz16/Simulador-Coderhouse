@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Simulador de costo del mantenimiento vehicular</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-dark py-4">
+        <h1 class="text-light text-center">Simulador de costo del mantenimiento vehicular</h1>
+    </header>
+    <main>
+        <!-- Calcualadora nafta -->
+        <section class="fondo-nafta">
+            <div class="container py-3">
+                <h2>Calculadora de Nafta</h2>
+                <div class="row mt-4">
+                    <div class="col">
+                        <input type="radio" name="nafta" id="distancia-nafta" class="form-check-input" role="button"
+                            checked>
+                        <label for="distancia-nafta" role="button" class="form-check-label">Distancia</label>
+                    </div>
+                    <div class="col input-group input-group-sm">
+                        <input type="text" id="valor-distancia-nafta" class="form-control flex-grow-0 w-25"
+                            placeholder="0" disabled>
+                        <span class="input-group-text">Kilómetros (km)</label>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col">
+                        <input type="radio" name="nafta" role="button" id="consumo-nafta" class="form-check-input">
+                        <label for="consumo-nafta" role="button" class="form-check-label">Consumo de nafta</label>
+                    </div>
+                    <div class="col input-group input-group-sm">
+                        <input type="text" id="valor-consumo-nafta" placeholder="0"
+                            class="form-control flex-grow-0 w-25">
+                        <span class="input-group-text">Kilómetros por litro</label>
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col">
+                        <input type="radio" name="nafta" role="button" id="cantidad-nafta" class="form-check-input">
+                        <label for="cantidad-nafta" role="button" class="form-check-label">Cantidad de nafta</label>
+                    </div>
+                    <div class="col input-group input-group-sm">
+                        <input type="text" id="valor-cantidad-nafta" placeholder="0"
+                            class="form-control flex-grow-0 w-25">
+                        <span class="input-group-text">Litros (l)</label>
+                    </div>
+                </div>
+
+                <div class="row mt-1 align-items-center">
+                    <div class="col">
+                        <span>Precio del combustible</label>
+                    </div>
+                    <div class="col input-group input-group-sm">
+                        <span class="input-group-text">$</span>
+                        <input type="text" id="valor-precio-nafta" class="form-control flex-grow-0 w-25"
+                            placeholder="0">
+                    </div>
+                </div>
+
+                <div class="row mt-5 align-items-center">
+                    <span class="col">Costo del trayecto</span>
+                    <div class="col input-group input-group-sm">
+                        <span class="input-group-text">$</span>
+                        <span class="input-group-text bg-light w-25" id="costo-trayecto-nafta">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculadora neumáticos -->
+        <section class="fondo-neumaticos">
+            <div class="container py-3">
+                <h2>Calculadora de Neumáticos</h2>
+                <div class="row row-cols-5 mt-3">
+                    <div class="col">
+                        <label for="costo-neumatico">Costo del neumático nuevo</label>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text">$</span>
+                            <input type="text" id="costo-neumatico" class="form-control flex-grow-0 w-50"
+                                placeholder="0">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label for="kilometros-neumatico">Kilómetros del neumático nuevo</label>
+                        <div class="input-group input-group-sm">
+                            <input type="text" id="kilometros-neumatico" class="form-control flex-grow-0 w-25"
+                                placeholder="0">
+                            <span class="input-group-text">Kilómetros (km)</span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="fs-6 sombra-texto">Total de la inversión</h3>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text">$</span>
+                                    <span class="input-group-text bg-light res-neumaticos-size"
+                                        id="total-inversion-neumaticos">0</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3 class="fs-6 sombra-texto">Total de KM</h3>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text bg-light res-neumaticos-size"
+                                        id="total-kilometros-neumaticos">0</span>
+                                    <span class="input-group-text">km</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3 class="fs-6 sombra-texto">Costo por KM</h3>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text">$</span>
+                                    <span class="input-group-text bg-light res-neumaticos-size"
+                                        id="total-costo-neumaticos">0</span>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center mt-4">
+                                <button type="button" class="btn btn-success" id="calcular-neumaticos">Calcular</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="cantidad-recapados">Número de recapados</label>
+                        <select class="form-select form-select-sm flex-grow-0" id="cantidad-recapados"
+                            style="width: 10%;">
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div id="recapado-1" class="no-display">
+                        <div class="row row-cols-auto mt-4">
+                            <div class="col-3">
+                                <label for="costo-recapado-1">Costo del recauchutado 1</label>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" id="costo-recapado-1" class="form-control flex-grow-0 w-50"
+                                        placeholder="0">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <label for="km-recapado-1">Kilómetros del recauchutado 1</label>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="km-recapado-1" class="form-control flex-grow-0 w-25"
+                                        placeholder="0">
+                                    <span class="input-group-text">Kilómetros (km)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="recapado-2" class="no-display">
+                        <div class="row row-cols-auto mt-4">
+                            <div class="col-3">
+                                <label for="costo-recapado-2">Costo del recauchutado 2</label>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" id="costo-recapado-2" class="form-control flex-grow-0 w-50"
+                                        placeholder="0">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <label for="km-recapado-2">Kilómetros del recauchutado 2</label>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="km-recapado-2" class="form-control flex-grow-0 w-25"
+                                        placeholder="0">
+                                    <span class="input-group-text">Kilómetros (km)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="recapado-3" class="no-display">
+                        <div class="row row-cols-auto mt-4">
+                            <div class="col-3">
+                                <label for="costo-recapado-3">Costo del recauchutado 3</label>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" id="costo-recapado-3" class="form-control flex-grow-0 w-50"
+                                        placeholder="0">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <label for="km-recapado-3">Kilómetros del recauchutado 3</label>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="km-recapado-3" class="form-control flex-grow-0 w-25"
+                                        placeholder="0">
+                                    <span class="input-group-text">Kilómetros (km)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="recapado-4" class="no-display">
+                        <div class="row row-cols-auto mt-4">
+                            <div class="col-3">
+                                <label for="costo-recapado-4">Costo del recauchutado 4</label>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" id="costo-recapado-4" class="form-control flex-grow-0 w-50"
+                                        placeholder="0">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <label for="km-recauchutado-4">Kilómetros del recauchutado 4</label>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="km-recauchutado-4" class="form-control flex-grow-0 w-25"
+                                        placeholder="0">
+                                    <span class="input-group-text">Kilómetros (km)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="recapado-5" class="no-display">
+                        <div class="row row-cols-auto mt-4">
+                            <div class="col-3">
+                                <label for="costo-recapado-5">Costo del recauchutado 5</label>
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" id="costo-recapado-5" class="form-control flex-grow-0 w-50"
+                                        placeholder="0">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <label for="km-recapado-5">Kilómetros del recauchutado 5</label>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" id="km-recapado-5" class="form-control flex-grow-0 w-25"
+                                        placeholder="0">
+                                    <span class="input-group-text">Kilómetros (km)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Cubiertas de neumáticos -->
+        <section class="fondo-cubiertas">
+            <div class="container py-3">
+                <h2>Cubiertas de Neumáticos</h2>
+                <div id="neumaticos" class="d-flex justify-content-around my-5"></div>
+            </div>
+        </section>
+    </main>
+    <footer class="container-fluid bg-dark pb-1 pt-5">
+        <p class="text-light text-center">© 2021 Alejo Pérez Herrero. Todos los derechos reservados</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/clases.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

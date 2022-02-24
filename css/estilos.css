@@ -1,0 +1,29 @@
+.res-neumaticos-size {
+    width: 70%;
+}
+
+.no-display {
+    display: none;
+}
+
+.fondo-nafta {
+    background: url('../img/fondo-nafta.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.fondo-neumaticos {
+    background: url('../img/fondo-neumaticos.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.fondo-cubiertas {
+    background: url('../img/fondo-cubiertas.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sombra-texto {
+    text-shadow: white 0 0 10px;
+}

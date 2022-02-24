@@ -1,0 +1,26 @@
+[
+    {
+        "id": "fate-prestiva-65R14",
+        "modelo": "Fate Prestiva",
+        "precio": 19241,
+        "tmrd": "175/65R14",
+        "velocidad": 190,
+        "img": "img/fate-prestiva.jpg"
+    },
+    {
+        "id": "bridgestone-turanza-55R16",
+        "modelo": "Bridgestone Turanza",
+        "precio": 39037,
+        "tmrd": "205/55R16",
+        "velocidad": 240,
+        "img": "img/bridgestone-turanza.jpg"
+    },
+    {
+        "id": "goodyear-assurance-60R16",
+        "modelo": "Goodyear Assurance",
+        "precio": 33986,
+        "tmrd": "195/60R16",
+        "velocidad": 190,
+        "img": "img/goodyear-assurance.jpg"
+    }
+]
